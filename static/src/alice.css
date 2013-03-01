@@ -1,0 +1,692 @@
+/**
+* @name: base
+* @description: 重置样式
+* @icon: ./icon.png
+* @require:[]
+* @author: liuqin <sliuqin@gmail.com>
+* @version: 1.0
+*/
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    color: #000;
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不各1?7 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+
+/* 重设 HTML5 标签, IE 霄1?7要在 js 丄1?7 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* HTML5 媒体文件跄1?7 img 保持丄1?7臄1?7 */
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/* 要注意表单元素并不继承父纄1?7 font 的问预1?7 */
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma, arial, "Hiragino Sans GB", \5b8b\4f53;
+}
+
+input, select, textarea {
+    font-size: 100%;
+}
+
+/*
+ * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+    line-height: normal;
+}
+
+/* 去掉各Table  cell 的边距并让其边重各1?7 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* IE bug fixed: th 不继扄1?7 text-align*/
+th {
+    text-align: inherit;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+    border: 0;
+}
+
+/* ie6 7 8(q) bug 显示为行内表玄1?7 */
+iframe {
+    display: block;
+}
+
+/* 去掉 firefox 下此元素的边桄1?7 */
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+/* 丄1?7致的 del 样式 */
+del {
+    text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* 去掉列表前的标识, li 会继扄1?7 */
+ol, ul {
+    list-style: none;
+}
+
+/* 对齐是排版最重要的因約1?7, 别让仄1?7么都居中 */
+caption, th {
+    text-align: left;
+}
+
+/* 来自yahoo, 让标题都自定乄1?7, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+/* 统一上标和下栄1?7 */
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* 让链接在 hover 状?1?7?下显示下划纄1?7 */
+a:hover {
+    text-decoration: underline;
+}
+
+/* 默认不显示下划线，保持页面简洄1?7 */
+ins, a {
+    text-decoration: none;
+}/**
+* @name: function
+* @name: xx
+* @description: 提供功能类型的样式，比如清理浮动，左右浮动等?1?7
+* @icon: ./icon.png
+* @require:[]
+* @author: liuqin <sliuqin@gmail.com>
+* @version: 1.0
+*/
+/* 清理浮动 */
+.fn-clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.fn-clear {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来丄1?7 JS 配合 */
+body .fn-hide {
+    display: none;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.fn-left, .fn-right {
+    display: inline;
+}
+
+.fn-left {
+    float: left;
+}
+
+.fn-right {
+    float: right;
+}
+
+/* 隐藏文字功能 */
+.fn-hidetext {
+    overflow: hidden;
+    text-indent: -9999px;
+}/**
+* @name:ui-button
+* @description:
+* @icon: ./icon.png
+* @require:[base]
+* @author: liuqin <sliuqin@gmail.com>
+* @version: 1.0
+*/
+.ui-button {
+    cursor: pointer;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    text-align: center;
+    text-decoration: none !important;
+    vertical-align: middle;
+}/**
+* @name: 橙色大按钄1?7
+* @description: 橙色大按钮，高度35px 按钮朄1?7大宽度：210px
+* @icon: ./ui-button-lorange.png
+* @require:[ui-button]
+* @author: liuqin <sliuqin@gmail.com>
+* @version: 1.0
+*/
+
+.ui-button-lorange {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oBXty1pTg.png);
+    background-repeat: no-repeat;
+    height: auto;
+}
+
+.ui-button-lorange .ui-button-text {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oBYhNpNEa.png);
+    background-position: right 0;
+    background-repeat: no-repeat;
+    padding: 7px 20px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.ui-tiptext-message, .ui-tiptext-container-message {
+    color: #4D4D4D;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 14px;
+    zoom: 1;
+}
+
+.ui-tiptext-container-message {
+    overflow: inherit;
+    padding: 8px 12px;
+    background: #e5f5ff;
+    border: 1px solid #c9d5e2;
+}
+
+.ie6 .ui-tiptext-message {
+    line-height: 17px;
+}
+
+.ie7 .ui-tiptext-message {
+    line-height: 17px;
+}
+
+.ie8 .ui-tiptext-message {
+    line-height: 17px;
+}
+
+.ui-tiptext-message .ui-tiptext-icon,
+.ui-tiptext-container-message .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oC3TDGHLo.png);
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    margin-right: 8px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.ui-tiptext-success, .ui-tiptext-container-success {
+    color: #4D4D4D;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 14px;
+    zoom: 1;
+}
+
+.ui-tiptext-container-success {
+    overflow: inherit;
+    padding: 8px 12px;
+    background: #E7FFCE;
+    border: 1px solid #B9E2A0;
+}
+
+.ie6 .ui-tiptext-success {
+    line-height: 17px;
+}
+
+.ie7 .ui-tiptext-success {
+    line-height: 17px;
+}
+
+.ie8 .ui-tiptext-success {
+    line-height: 17px;
+}
+
+.ui-tiptext-success .ui-tiptext-icon,
+.ui-tiptext-container-success .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oC5oHg1rw.png);
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    margin-right: 8px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.ui-tiptext-question, .ui-tiptext-container-question {
+    color: #4D4D4D;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 14px;
+    zoom: 1;
+}
+
+.ui-tiptext-container-question {
+    overflow: inherit;
+    padding: 8px 12px;
+    background-color: #E5F5FF;
+    border: 1px solid #c9d5e2;
+}
+
+.ie6 .ui-tiptext-question {
+    line-height: 17px;
+}
+
+.ie7 .ui-tiptext-question {
+    line-height: 17px;
+}
+
+.ie8 .ui-tiptext-question {
+    line-height: 17px;
+}
+
+.ui-tiptext-question .ui-tiptext-icon,
+.ui-tiptext-container-question .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oC55mTljI.png);
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    margin-right: 8px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.ui-tiptext-warning, .ui-tiptext-container-warning {
+    color: #4D4D4D;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 14px;
+    zoom: 1;
+}
+
+.ui-tiptext-container-warning {
+    overflow: inherit;
+    padding: 8px 12px;
+    background: #e5f5ff;
+    border: 1px solid #c9d5e2;
+}
+
+.ie6 .ui-tiptext-warning {
+    line-height: 17px;
+}
+
+.ie7 .ui-tiptext-warning {
+    line-height: 17px;
+}
+
+.ie8 .ui-tiptext-warning {
+    line-height: 17px;
+}
+
+.ui-tiptext-warning .ui-tiptext-icon,
+.ui-tiptext-container-warning .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oC6S7ZylA.png);
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    margin-right: 8px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.ui-tiptext-notice, .ui-tiptext-container-notice {
+    color: #4D4D4D;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 14px;
+    zoom: 1;
+}
+
+.ui-tiptext-container-notice {
+    overflow: inherit;
+    padding: 8px 12px;
+    background: #e5f5ff;
+    border: 1px solid #c9d5e2;
+}
+
+.ie6 .ui-tiptext-notice {
+    line-height: 17px;
+}
+
+.ie7 .ui-tiptext-notice {
+    line-height: 17px;
+}
+
+.ie8 .ui-tiptext-notice {
+    line-height: 17px;
+}
+
+.ui-tiptext-notice .ui-tiptext-icon,
+.ui-tiptext-container-notice .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oC4CFt8Gq.png);
+    width: auto;
+    height: auto;
+    vertical-align: top;
+    margin-right: 8px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+/**
+* @name : ui-poptip
+* @filename: ui-poptip.css
+* @overview: ??????????
+* @author : ???(xingmin.zhu@alipay.com)
+*/
+
+.ui-poptip {
+    position: absolute;
+    color: #DB7C22;
+    z-index: 101;
+    line-height: 1.5;
+}
+
+.ui-poptip-shadow {
+    background-color: rgba(229, 169, 107, 0.15);
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#26e5a96b, endColorstr=#26e5a96b);
+    /* Math.floor(0.15 * 255).toString(16); */
+    border-radius: 2px;
+    padding: 2px;
+    float: left;
+}
+
+.ui-poptip-container {
+    position: relative;
+    background-color: #FFFCEF;
+    border: 1px solid #ffbb76;
+    border-radius: 2px;
+    padding: 5px 22px 5px 10px;
+    float: left;
+}
+
+a.ui-poptip-close {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    border: 1px solid #ffc891;
+    border-radius: 3px;
+    width: 12px;
+    height: 12px;
+    font-family: tahoma;
+    color: #dd7e00;
+    line-height: 10px;
+    *line-height: 12px;
+    text-align: center;
+    font-size: 14px;
+    background: #ffd7af;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF0E1), to(#FFE7CD));
+    background: -moz-linear-gradient(top, #FFF0E1, #FFE7CD);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF0E1', endColorstr='#FFE7CD');
+    background: -o-linear-gradient(top, #FFF0E1, #FFE7CD);
+    background: linear-gradient(top, #FFF0E1, #FFE7CD);
+    overflow: hidden;
+}
+
+a.ui-poptip-close:hover {
+    border: 1px solid #ffb24c;
+    text-decoration: none;
+    color: #dd7e00;
+    background: #ffd7af;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFE5CA), to(#FFCC98));
+    background: -moz-linear-gradient(top, #FFE5CA, #FFCC98);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE5CA', endColorstr='#FFCC98');
+    background: -o-linear-gradient(top, #FFE5CA, #FFCC98);
+    background: linear-gradient(top, #FFE5CA, #FFCC98);
+}
+
+.ui-poptip-arrow, .ui-poptip-arrow em, .ui-poptip-arrow span {
+    position: absolute;
+    font-size: 14px;
+    font-family: SimSun, Hiragino Sans GB;
+    font-style: normal;
+    line-height: 21px;
+    z-index: 10;
+    *zoom: 1;
+}
+
+.ui-poptip-arrow em, .ui-poptip-arrow-left em, .ui-poptip-arrow-right em {
+    color: #ffbb76;
+}
+
+.ui-poptip-arrow span, .ui-poptip-arrow-left span, .ui-poptip-arrow-right span {
+    color: #FFFCEF;
+    top: 0;
+    left: 0;
+}
+
+/* ui-poptip-arrow-left & ui-poptip-arrow-10 */
+
+.ui-poptip-arrow-left, .ui-poptip-arrow-left em, .ui-poptip-arrow-left span {
+    position: absolute;
+    font-size: 14px;
+    font-family: SimSun, Hiragino Sans GB;
+}
+
+.ui-poptip-arrow-left, .ui-poptip-arrow-10 {
+    top: 6px;
+    left: -6px;
+}
+
+.ui-poptip-arrow-left em, .ui-poptip-arrow-10 em {
+    top: 0;
+    left: -1px;
+}
+
+/* ui-poptip-arrow-right & ui-poptip-arrow-1 */
+
+.ui-poptip-arrow-right, .ui-poptip-arrow-right em, .ui-poptip-arrow-right span {
+    position: absolute;
+    font-size: 14px;
+    font-family: SimSun, Hiragino Sans GB;
+}
+
+.ui-poptip-arrow-right, .ui-poptip-arrow-2 {
+    top: 6px;
+    right: 8px;
+}
+
+.ie6 .ui-poptip-arrow-right ,.ie6 .ui-poptip-arrow-2 {
+    right: 7px;
+}
+
+.ie8 .ui-poptip-arrow-right ,.ie8 .ui-poptip-arrow-2 {
+    right: 8px;
+}
+
+.ui-poptip-arrow-right em, .ui-poptip-arrow-2 em {
+    top: 0;
+    left: 1px;
+}
+
+/* ui-poptip-arrow-11 */
+.ui-poptip-arrow-11 {
+    left: 14px;
+    top: -10px;
+}
+
+.ui-poptip-arrow-11 em {
+    top: -1px;
+    left: 0;
+}
+
+/* ui-poptip-arrow-1 */
+.ui-poptip-arrow-1 {
+    right: 28px;
+    top: -10px;
+}
+
+.ui-poptip-arrow-1 em {
+    top: -1px;
+    left: 0;
+}
+
+/* ui-poptip-arrow-7 */
+.ui-poptip-arrow-7 {
+    left: 14px;
+    bottom: 11px;
+}
+
+.ie6 .ui-poptip-arrow-7 {
+    bottom: 10px;
+}
+
+.ie8 .ui-poptip-arrow-7,.ie9 .ui-poptip-arrow-7 {
+    bottom: 10px;
+}
+
+.ui-poptip-arrow-7 em {
+    top: 1px;
+    left: 0;
+}
+
+/* ui-poptip-arrow-5 */
+.ui-poptip-arrow-5 {
+    right: 28px;
+    bottom: 11px;
+}
+
+.ui-poptip-arrow-5 em {
+    top: 1px;
+    left: 0;
+}
+
+.ui-poptip-icon {
+    float: left;
+    display: inline;
+    margin-right: 6px;
+    width: 50px;
+    height: 42px;
+}
+
+
+
+.ui-poptip-icon-text {
+    display: none;
+}
+
+.ui-poptip-content {
+    *zoom: 1;
+    float: none;
+    display: block;
+}
+
+.ui-poptip-content:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.ui-poptip-link {
+    margin-top: 4px;
+    float: left;
+}
+
+.ui-poptip-link a {
+    color: #08c;
+}
+
+/* ie9 filter */
+:root .ui-poptip-shadow {
+    FILTER: none\9;
+}
+
+/* ??? */
+.ui-poptip-blue {
+    color: #4d4d4d;
+}
+
+.ui-poptip-blue .ui-poptip-shadow {
+    background-color: rgba(0, 0, 0, 0.05);
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#0c000000, endColorstr=#0c000000);
+}
+
+.ui-poptip-blue .ui-poptip-container {
+    background-color: #F8FCFF;
+    border: 1px solid #B9C8D3;
+}
+
+.ui-poptip-blue .ui-poptip-arrow em, .ui-poptip-blue .ui-poptip-arrow-left em, .ui-poptip-blue .ui-poptip-arrow-right em {
+    color: #B9C8D3;
+}
+
+.ui-poptip-blue .ui-poptip-arrow span, .ui-poptip-blue .ui-poptip-arrow-left span, .ui-poptip-blue .ui-poptip-arrow-right span {
+    color: #F8FCFF;
+}
+
+/* ??? */
+.ui-poptip-white {
+    color: #333;
+}
+
+.ui-poptip-white .ui-poptip-shadow {
+    background-color: rgba(0, 0, 0, 0.05);
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#0c000000, endColorstr=#0c000000);
+}
+
+.ui-poptip-white .ui-poptip-container {
+    background-color: #fff;
+    border: 1px solid #b1b1b1;
+}
+
+.ui-poptip-white .ui-poptip-arrow em, .ui-poptip-white .ui-poptip-arrow-left em, .ui-poptip-white .ui-poptip-arrow-right em {
+    color: #b1b1b1;
+}
+
+.ui-poptip-white .ui-poptip-arrow span, .ui-poptip-white .ui-poptip-arrow-left span, .ui-poptip-white .ui-poptip-arrow-right span {
+    color: #fff;
+}

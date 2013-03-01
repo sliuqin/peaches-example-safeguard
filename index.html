@@ -1,0 +1,957 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>会员保障 - 支付宝</title>
+
+
+    <link rel="icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon" />
+
+    <!-- CMS:seajs 部署开始:alipay/tracker/seajs.vm -->
+    <script charset="utf-8" id="seajsnode" src="https://a.alipayobjects.com/seajs/1.2.1/??sea.js,plugin-combo.js"></script>
+    <script>
+        (function(){
+            var GALLERY_MODULES = [
+                'async','backbone','coffee','cookie','es5-safe','handlebars','iscroll',
+                'jasmine','jasmine-jquery','jquery','jquery-color','json','keymaster',
+                'labjs','less','marked','moment','mustache','querystring','raphael',
+                'socketio','store','swfobject','underscore','zepto','ztree'
+            ];
+
+            var ARALE_MODULES = [
+                'autocomplete','base','calendar','class','cookie','dialog','easing',
+                'events','iframe-uploader','iframe-shim','messenger','overlay','popup',
+                'position','select','switchable','tip','validator','widget'
+            ];
+
+            var util = seajs.pluginSDK.util;
+
+            function contains(arr, item) {
+                return util.indexOf(arr, item) > -1
+            }
+
+            function map(id) {
+                id = id.replace('#', '');
+
+                var parts = id.split('/');
+                var len = parts.length;
+                var root, name;
+
+                // id = root/name/x.y.z/name
+                if (len === 4) {
+                    root = parts[0];
+                    name = parts[1];
+
+                    // gallery 或 alipay 开头的没有问题
+                    if (root === 'alipay' || root === 'gallery') {
+                        return id;
+                    }
+
+                    // arale 开头的
+                    if (root === 'arale') {
+                        // 处理 arale/handlebars 的情况
+                        if (contains(GALLERY_MODULES, name)) {
+                            return id.replace('arale/', 'gallery/');
+                        } else {
+                            return id;
+                        }
+                    }
+                }
+                // id = name/x.y.z/name
+                else if (len === 3) {
+                    name = parts[0]
+
+                    // 开头在 GALLERY_MODULES 或 ARALE_MODULES
+                    if (contains(GALLERY_MODULES, name)) {
+                        return 'gallery/' + id;
+                    } else if (contains(ARALE_MODULES, name)) {
+                        return 'arale/' + id;
+                    }
+                }
+
+                return id;
+            }
+
+            seajs.config({
+                alias: {
+                    '$': 'gallery/jquery/1.7.2/jquery',
+                    '$-debug': 'gallery/jquery/1.7.2/jquery-debug',
+                    'jquery': 'gallery/jquery/1.7.2/jquery'
+                }
+            });
+
+            var _use = seajs.use;
+
+            seajs.use = function(ids, callback) {
+                if (typeof ids === 'string') {
+                    ids = [ids];
+                }
+
+                ids = util.map(ids, function(id) {
+                    return map(id);
+                });
+
+                return _use(ids, callback);
+            }
+
+        })();
+    </script><!-- CMS:seajs 部署结束:alipay/tracker/seajs.vm -->
+    <!-- CMS:全站页面效率统计开始:alipay/tracker/tracker_time.vm --><meta name="ABTest" content="" />
+
+
+    <script type="text/javascript">
+        window.monitor||(function(){var M=window.monitor={};M._rate=0.01;M._errors=[];M._now=function(){return ("function"==typeof Date.now)?Date.now():new Date().valueOf();};M._startTime=window.performance&&performance.timing?performance.timing.navigationStart:M._now();var _TIMER={};M.time=function(name){_TIMER[name]=M._now();};M.timeEnd=function(name){var s=_TIMER[name];if(!s){return NaN;}var e=M._now(),t=e-s;M._errors.push({"time":t});if("function"==typeof M.timedSend){M.timedSend();}return t;};M.log=function(g,p,c){M._errors.push({constom:{type:"log",productLine:g,product:p,errorCode:c,counts:1}});if("function"==typeof M.timedSend){M.timedSend();}};M.error=function(e){if(!(msg instanceof Error)){return;}M._errors.push({constom:{msg:e.message,file:e.fileName||"",ln:e.lineNumber||e.line||0}});if("function"==typeof M.timedSend){M.timedSend();}};window.onerror=function(m,f,l){M._errors.push({jsError:{msg:m,file:f,ln:l}});if("function"==typeof M.timedSend){M.timedSend();}return false;}})();
+
+        window._to = { start: new Date() };
+    </script>
+
+
+    <script charset="utf-8" src="https://a.alipayobjects.com/ar/??alipay.light.base-1.1.js,alipay.tracker-1.9.js,alipay.fmsmng.monitor-1.4.js"></script>
+
+    <!-- CMS:全站页面效率统计结束:alipay/tracker/tracker_time.vm -->
+
+    <link charset="utf-8" rel="stylesheet" href="./static/dist/safeguard.css" media="all" />
+
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="https://a.alipayobjects.com/al/alice.common.v1-2.2.css" />
+
+
+    <script type="text/javascript">
+        AralePreload = [];
+        var AP = AP || {};
+        AP.PageVar = {
+            app_domain:"https://my.alipay.com",
+            appstore_domain: "https://app.alipay.com",
+            personal_domain:"https://lab.alipay.com",
+            personalprod_domain:"https://shenghuo.alipay.com",
+            mipgw_domain:"https://mipgw.alipay.com",
+            ccrprod_domain:"https://ccrprod.alipay.com",
+            zhangdan_domain:"https://zd.alipay.com",
+            benefits_domain:"https://huiyuan.alipay.com",
+            image_domain:"https://img.alipay.com",
+            communityweb_domain: "https://weike.alipay.com",
+            tfs_domain:"https://tfsimg.alipay.com",
+            benefitprod_domain:"https://zht.alipay.com"
+        }
+    </script>
+</head>
+<!--[if lt IE 7]><body class="ie6"><![endif]--><!--[if IE 7]><body class="ie7"><![endif]--><!--[if IE 8]><body class="ie8"><![endif]--><!--[if !IE]><!--><body><!--<![endif]-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CMS:导航消息开关开始:alipay/nav/msgSwitch.vm --><script>
+    MSGSWITCH = true;
+</script>
+
+<!-- CMS:导航消息开关结束:alipay/nav/msgSwitch.vm -->
+<div class="global-top global-reset" id="globalTop">
+    <div class="global-top-container">
+        <ul class="global-top-right">
+            <li class="global-top-item global-top-item-first">
+                <a id="globalBirthIcon" href="http://abc.alipay.com/jiniance/index.htm" class="global-icon global-icon-birth global-hide" target="_blank"></a>
+                <span class="global-top-text">你好，盛柳钦</span>
+            </li>
+            <li class="global-top-item">
+                <a href="https://auth.alipay.com/login/logout.htm?goto=http://www.alipay.com" class="global-top-link" seed="global-header-logout">退出</a>
+            </li>
+            <li id="globalUser" class="global-top-item">
+                <a class="global-top-link" href="https://my.alipay.com" target="_blank">我的支付宝</a>
+                <span class="global-top-angle"></span>
+            </li>
+            <li id="globalMsg" class="global-top-item">
+                <a href="https://memberprod.alipay.com/messager/new.htm" class="global-msg-count" seed="global-msg" target="_blank">消息</a>
+            </li>
+            <li id="globalSecurity" class="global-top-item">
+                <a class="global-top-link" href="https://securitycenter.alipay.com/sc/index.htm" target="_blank">安全中心</a>
+            </li>
+            <li id="globalHelp" class="global-top-item">
+                <a class="global-top-link" href="http://help.alipay.com/lab/index.htm" target="_blank">帮助中心</a>
+                <span class="global-top-angle"></span>
+            </li>
+            <li class="global-top-item global-top-item-last">
+                <a class="global-top-link" href="https://egg.alipay.com/" target="_blank">提建议</a>
+            </li>
+        </ul>
+        <ul class="global-top-left">
+            <li class="global-top-item global-top-item-first global-top-item-last">
+                <span class="global-icon global-icon-mobile"></span>
+                <a class="global-top-link" href="http://mobile.alipay.com/index.htm" target="_blank">手机支付宝</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 供侧边栏读取的user-email -->
+<div id="global-username" class="fn-hide">sliuqin@gmail.com</div>
+<!-- 浮层的容器，不能直接插 body 上 -->
+<div id="global-container"></div>
+
+<script type="text/javascript">
+    (function() {
+        document.domain = document.domain.split(".").slice(-2).join(".");
+
+        window.GLOBAL = {
+            system: {
+                personal: "https://lab.alipay.com",
+                personalportal: "https://my.alipay.com",
+                authcenter: "https://auth.alipay.com",
+                apimg: "https://i.alipayobjects.com",
+                assets: "https://a.alipayobjects.com"
+            }
+        };
+
+        seajs.use('jquery');
+        seajs.use(['alipay/common-v1/1.6.0/v1'],function(v1){
+            v1.init({
+                url: 'https://tfsimg.alipay.com/images/partner/T1vXVXXcpdXXXXXXXX',
+                username: 'sliuqin@gmail.com',
+                today:'20130220',
+                birthday: '0707',
+                isLogin: true,
+                BIRTHURL: GLOBAL.BIRTHURL,
+                needLoadMsg: 'Y',
+                personalServer: 'https://lab.alipay.com',
+                personalprodServer: 'https://shenghuo.alipay.com',
+                personalportalServer: 'https://my.alipay.com',
+                memberprodServer: 'https://memberprod.alipay.com',
+                securityServer: 'https://securitycenter.alipay.com'
+            });
+        });
+    })();
+</script>
+
+
+<!-- CMS:生日关怀运营内容开始:personal/personalpublic/birthday.vm --><script>
+    GLOBAL.BIRTHURL = 'https://i.alipayobjects.com/e/201205/2bYT4D3i49.swf';
+
+    window.getUrl = function(){
+        window.open("http://fun.alipay.com/shengri/index.htm");
+    };
+</script><!-- CMS:生日关怀运营内容结束:personal/personalpublic/birthday.vm -->
+<!-- CMS:支付宝全站/全站导航/全站导航下方广告位开始:alipay/nav/global_ad.vm --><!-- CMS:支付宝全站/全站导航/全站导航下方广告位结束:alipay/nav/global_ad.vm -->
+<div id="container" class="ui-container">
+
+
+<!-- CMS:全站顶部公告开始:alipay/notice/headNotice.vm --><!-- CMS:全站顶部公告结束:alipay/notice/headNotice.vm -->
+<div id="global-header" class="global-header the-alipay-global">
+    <div id="global-header-area" class="fn-clear" coor="headarea">
+        <div class="global-logo">
+            <a href="https://lab.alipay.com/user/i.htm" title="我的支付宝" seed="global-logo"><span>支付宝</span></a>
+        </div>
+        <div class="global-link">
+            <!-- CMS:logo右边动画开始:personal/personalpublic/flash.vm --><!-- CMS:logo右边动画结束:personal/personalpublic/flash.vm -->            </div>
+    </div>
+
+    <div id="global-header-nav" coor="nav">
+
+
+
+
+
+
+        <!-- CMS:导航消息开关开始:alipay/nav/msgSwitch.vm --><script>
+        MSGSWITCH = true;
+    </script>
+
+        <!-- CMS:导航消息开关结束:alipay/nav/msgSwitch.vm -->
+        <!-- CMS:支付宝全站/全站导航/主站导航广告位开始:alipay/nav/promo.vm --><!-- CMS:支付宝全站/全站导航/主站导航广告位结束:alipay/nav/promo.vm -->
+        <div style="position: relative;width: 990px;margin: 0 auto;z-index:1;">
+            <img src="https://i.alipayobjects.com/e/201209/GXzKAiZTg.png" style="position: absolute;margin-left: -170px;z-index: 10;margin-top: -12px;left: 50%;" title="敢用敢赔" alt="敢用敢赔">
+        </div>
+
+        <div class="global-nav fn-clear global-nav-nosub">
+            <div class="global-nav-cnt">
+                <ul class="fn-clear">
+                    <li class="global-nav-master ">
+                        <a href="https://lab.alipay.com/user/i.htm" class="global-nav-master-a"  seed="global-user-i"><strong>我的支付宝</strong></a>
+                        <!-- CMS:我的支付宝常用功能链接开始:alipay/nav/ilink.vm --><!-- 常用菜单 -->
+                        <p class="global-subnav">
+                            <span class="global-subnav-title">常用功能：</span>
+                            <a href="https://lab.alipay.com/user/mobile/index.htm" seed="global-ilink-mobile" title="手机服务" target="_blank">手机服务</a>
+                            <span class="global-separator-pd">|</span>
+                            <a href="https://certify.alipay.com/choose.htm" title="实名认证" seed="global-ilink-certify" target="_blank">实名认证</a>
+                            <span class="global-separator-pd">|</span>
+                            <a href="https://lab.alipay.com/consume/record/items.htm" title="收支明细" seed="global-ilink-consome" target="_blank">收支明细</a>
+                            <span class="global-separator-pd">|</span>
+                            <a href="https://lab.alipay.com/consume/record/inpour.htm" title="充提记录" seed="global-ilink-record" target="_blank">充提记录</a>
+                            <span class="global-separator-pd">|</span>
+                            <a href="https://self.alipay.com/selfhelp/passwordfind/index.htm?type=P" title="找回支付密码" seed="global-ilink-passwordfind" target="_blank">找回支付密码</a>
+                            <span class="global-separator-pd">|</span>
+                            <a href="https://securitycenter.alipay.com/cert/index.htm" title="数字证书" seed="global-ilink-cert" target="_blank">数字证书</a>
+                            <span class="global-separator-pd">|</span>
+                            <a href="http://fun.alipay.com/sitemap/index.htm" title="更多" seed="global-ilink-more" target="_blank">更多</a>
+                        </p>
+                        <!-- 常用菜单 --><!-- CMS:我的支付宝常用功能链接结束:alipay/nav/ilink.vm -->            </li><!-- 一级导航 s0 我的支付宝 -->
+
+                    <li class="global-nav-master  ">
+                        <a href="https://lab.alipay.com/user/assets/index.htm" class="global-nav-master-a" seed="global-account"><strong>账户管理</strong></a>
+                        <ul class="global-subnav">
+                            <li >
+                                <a href="https://lab.alipay.com/user/assets/index.htm" seed="global-account-info"><span>账户资产</span></a>
+                            </li>
+                            <li >
+                                <a href="https://lab.alipay.com/user/myAccount/index.htm" seed="global-account-member"><span>账户信息</span></a>
+                            </li>
+                            <li >
+                                <a href="https://memberprod.alipay.com/messager/new.htm"  seed="global-account-message"><span>消息中心</span></a>
+                            </li>
+                        </ul>
+                    </li><!-- 一级导航 s1 账户管理 -->
+
+                    <li class="global-nav-master  ">
+                        <a href="https://lab.alipay.com/consume/record/index.htm" class="global-nav-master-a" seed="global-record"><strong>交易记录</strong></a>
+                        <ul class="global-subnav">
+                            <li >
+                                <a href="https://lab.alipay.com/consume/record/index.htm" seed="global-record-detail"><span>交易记录</span></a>
+                            </li>
+                            <li >
+                                <a href="https://lab.alipay.com/consume/record/inpour.htm" seed="global-record-deposit"><span>充值记录</span></a>
+                            </li>
+                            <li >
+                                <a href="https://lab.alipay.com/consume/record/draw.htm" seed="global-record-withdraw"><span>提现记录</span></a>
+                            </li>
+                            <li >
+                                <a href="https://pingjia.alipay.com/comment/concumserCriticismManage.htm" seed="global-record-comment"><span>交易评价</span></a>
+                            </li>
+                            <!--
+                            <li>
+                              <a href="$rebateprodServer.getURI('/index.htm')" target="_blank" seed="global-record-rebate"><span>商家返利</span></a>
+                            </li>
+                            -->
+                            <li >
+                                <a href="https://shenghuo.alipay.com/calendar/index.htm" seed="global-record-calendar"><span>提醒和代扣</span></a>
+                            </li>
+                            <li >
+                                <a href="https://zd.alipay.com/ebill/index.htm" seed="global-record-ebill" id="global-record-ebill"><span>电子对账单</span></a>
+                            </li>
+                            <li >
+                                <a href="https://jz.alipay.com/tally/index.htm" seed="global-record-tally"><span>记账</span></a>
+                            </li>
+                        </ul>
+                    </li><!-- 一级导航 s2 交易记录 -->
+
+                    <li class="global-nav-master  global-nav-master-current">
+                        <a href="https://my.alipay.com/portal/account/safeguard.htm" class="global-nav-master-a" seed="global-safeguard">
+                            <strong>会员保障</strong>
+                        </a>
+                    </li><!-- 一级导航 s6 会员保障 -->
+
+                    <!-- appKey: -->
+                    <li class="global-nav-master ">
+                        <a href="https://app.alipay.com/container/web/index.htm" class="global-nav-master-a" seed="global-appstore"><strong>应用中心</strong></a>
+                    </li>
+                    <li class="global-nav-separator-dashed">|</li>
+                    <li class="global-nav-master-other ">
+                        <a href="https://app.alipay.com/container/web/catGw.htm?catKey=1005" class="global-nav-master-a" seed="global-appstore-1005"><em>转账</em></a>
+                    </li>
+                    <li class="global-nav-master-other ">
+                        <a href="https://jiaofei.alipay.com/jiaofei.htm?_pdType=ajcjbgecchegdcbjjjec" class="global-nav-master-a" seed="global-appstore-1001"><em>缴费</em></a>
+                    </li>
+                    <li class="global-nav-master-other ">
+                        <a href="https://shenghuo.alipay.com/credit.htm?_pdType=ajcjbgfecaggeebeedba" class="global-nav-master-a" seed="global-appstore-1002"><em>还款</em></a>
+                    </li>
+                    <li class="global-nav-master-other ">
+                        <a href="https://app.alipay.com/container/web/catGw.htm?catKey=1021" class="global-nav-master-a" seed="global-appstore-1021"><em>担保</em></a>
+                    </li>
+                    <li class="global-nav-master-other ">
+                        <a href="https://app.alipay.com/container/web/catGw.htm?catKey=1003" class="global-nav-master-a" seed="global-appstore-1003"><em>理财</em></a>
+
+                    </li> <!-- 一级导航 应用中心 -->
+                </ul>
+            </div><!-- .global-nav-cnt -->
+        </div><!-- .global-nav -->        </div>
+
+    <a name="skip"></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="header fn-clear  isLogon ">
+    <div class="slogan fn-left">
+        <h1 class="slogan-title">会员保障，让您的支付更安心</h1>
+
+        <p class="slogan-desc"><strong>会员保障</strong>，是支付宝为会员提供的资金保障和交易维权保障服务</p>
+
+        <p class="slogan-notice">本保障服务2012.9.12正式生效</p>
+    </div>
+    <ul class="fn-right guard-list fn-clear">
+        <li id="J-guard-list-wallet" class=" icon-wallet ">
+            <a href="#wallet" class="current" data-for="J-wallet">账户资金</a>
+        </li>
+        <li id="J-guard-list-trade" class="icon-trade"><a href="#trade" data-for="J-trade">购物交易</a></li>
+        <li id="J-guard-list-indemnity" class="icon-indemnity"><a href="#indemnity" data-for="J-indemnity">逾期补偿</a></li>
+    </ul>
+</div>
+<div class="page-content  isLogon ">
+<div class="switch-list" id="J-wallet">
+    <div class="page-main page-main-login-true">
+        <p class="ui-tiptext-lsuccess">
+            <i class="ui-tiptext-icon"></i>
+            <strong>您的账户已受资金安全保障。</strong>
+        </p>
+
+    </div>
+    <div class="page-main-detail">
+        <ul class="guard-list-detail">
+            <li>
+                <div class="guard-item  ui-tiptext-success  ">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>余额支付保障</strong>
+                    <i class="icon-question" id="J-pop-balance"></i>
+                </div>
+
+                <p>当您账户中的余额（含：<a href="https://jf.alipay.com/prod/pintegral.htm" target="_blank">集分宝</a>及<a
+                        href="https://hongbao.alipay.com/coupon/index.htm" target="_blank">支付宝红包</a>）被盗，且您符合余额保障条件，支付宝将向您补偿全部或部分被盗款项。
+                </p>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=252759" target="_blank" seed="link-252759">查看细则&gt;&gt;</a>
+            </li>
+            <li>
+                <p class="guard-item  ui-tiptext-success  ">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>快捷支付保障</strong>
+
+                    <i class="icon-question" id="J-pop-kuai"></i>
+                </p>
+
+                <p>当您使用快捷支付支付时资金被盗，请您立即致电支付宝反馈。经支付宝核实并通过审核后， 将向您补偿全部或部分被盗款项。</p>
+
+            </li>
+            <li class="notice">
+                <p class="guard-item ui-tiptext-warning">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>网上银行支付</strong>
+                </p>
+
+                <p>当您使用网上银行支付时资金被盗，支付宝不作补偿，请您尽快联系银行。</p>
+            </li>
+        </ul>
+        <p class="detail-notice"><strong>注：</strong>使用以上未提及的支付方式发生的款项损失，支付宝不作补偿。</p>
+    </div>    </div>
+<div class="switch-list fn-hide" id="J-trade">
+    <div class="page-main">
+        <p class="ui-tiptext-lsuccess">
+            <i class="ui-tiptext-icon"></i>
+            <strong>您的账户已受交易维权保障。</strong>
+        </p>
+    </div>
+    <div class="page-main-detail">
+        <ul class="guard-list-detail">
+            <li>
+                <p class="guard-item ui-tiptext-success">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>淘宝网、天猫、阿里巴巴购物保障。</strong>
+                </p>
+
+                <p>在淘宝网、天猫、阿里巴巴使用支付宝担保交易支付，发生交易纠纷时，请您依照各网站公布的规则进行维权。</p>
+                <a href="http://baozhang.taobao.com/" target="_blank">淘宝维权&gt;&gt;</a>
+                <a href="http://service.tmall.com/support/tmall/knowledge-5120986.htm" target="_blank">天猫维权&gt;&gt;</a>
+                <a href="http://service.china.alibaba.com/kf/list/222.html" target="_blank">阿里巴巴维权&gt;&gt;</a>
+            </li>
+            <li>
+                <p class="guard-item ui-tiptext-success">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>支付宝特约担保支付商家购物保障（担保支付）</strong>
+                    <i class="icon-question" id="J-pop-danbao"></i>
+                </p>
+
+                <p>在支付宝特约担保支付商家购物，在发生交易纠纷时，请您依照支付宝公布的规则进行维权。</p>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=250891" seed="link-250891" target="_blank">担保支付维权处理规则&gt;&gt;</a>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=250890" seed="link-250890" target="_blank">担保支付服务协议&gt;&gt;</a>
+            </li>
+            <li>
+                <p class="guard-item ui-tiptext-success">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>其它担保交易保障</strong>
+                </p>
+
+                <p>在其它网站使用支付宝担保交易支付，发生交易纠纷时，经买卖双方协调未果后，请您依照支付宝公布的规则进行维权。</p>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=212378" target="_blank">争议处理规则&gt;&gt;</a>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=250891" target="_blank">担保支付交易维权处理规则&gt;&gt;</a>
+            </li>
+        </ul>
+    </div>    </div>
+<div class="switch-list fn-hide" id="J-indemnity">
+    <div class="page-main">
+
+        <p class="ui-tiptext-lsuccess">
+            <i class="ui-tiptext-icon"></i>
+            <strong>您的账户已受支付宝服务逾期补偿保障。</strong>
+        </p>
+
+
+    </div>
+    <div class="page-main-detail">
+        <ul class="guard-list-detail">
+            <li>
+                <p class="guard-item ui-tiptext-success">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>公共事业及其他缴费保障</strong>
+                </p>
+
+                <p>在支付宝进行公共事业缴费（水电煤费、物业费、交通罚款等），您享有缴费服务逾期的保障，具体以支付宝公布的规则为准。</p>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=252760" target="_blank" seed="link-252759">查看细则&gt;&gt;</a>
+            </li>
+            <li>
+                <p class="guard-item ui-tiptext-success">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>信用卡还款保障</strong>
+                </p>
+
+                <p>在支付宝进行信用卡还款，您享有信用卡还款服务逾期的保障，具体以支付宝公布的规则为准。</p>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=253027" target="_blank" seed="link-252759">查看细则&gt;&gt;</a>
+
+            </li>
+            <li>
+                <p class="guard-item ui-tiptext-success">
+                    <i class="ui-tiptext-icon"></i>
+                    <strong>转账到卡保障</strong>
+                </p>
+
+                <p>在支付宝进行转账到银行卡，您享有转账到银行卡服务逾期的保障，具体以支付宝公布的规则为准。</p>
+                <a href="http://help.alipay.com/lab/help_detail.htm?help_id=254848" target="_blank" seed="link-254848">查看细则&gt;&gt;</a>
+            </li>
+        </ul>
+
+    </div>    </div>
+
+<div class="step">
+    <h3>服务流程</h3>
+    <ol class="step-list fn-clear">
+        <li class="step-list-1">
+            <i class="icon"></i>
+
+            <p>拨打客服电话<br/>0571－88156688</p>
+        </li>
+        <li class="separator"></li>
+        <li class="step-list-2">
+            <i class="icon"></i>
+
+            <p>我们会在3-5个工作日内，通知您<br/>是否满足保障条件并要求提供凭证</p>
+        </li>
+        <li class="separator"></li>
+        <li class="step-list-3">
+            <i class="icon"></i>
+
+            <p>凭证审核通过后<br/>3个工作日内完成补偿</p>
+        </li>
+    </ol>
+    <p class="ui-tiptext-notice">
+        <i class="ui-tiptext-icon"></i>
+        <strong>会员保障在线服务流程正在建设中，敬请期待！</strong>
+    </p>
+</div>
+<div class="case fn-clear">
+    <h3>真实案例</h3>
+
+    <div class="fn-clear">
+        <ul class="case-left">
+            <!-- CMS:聚合展现平台/展现层/真实案例_左开始:personalportal/portal/safeguard_case_1.vm -->
+            <li>用户：13********@q*.com  补偿金额：196.5 2012-12</li>
+            <li>用户：15**********	 补偿金额：10891 2012-12</li>
+            <li>用户：ta******@g****.com 补偿金额：198   2012-12</li>
+            <li>用户：zj1*******@**6.com 补偿金额：3889  2012-12</li>
+            <li>用户：13**********	 补偿金额：194.85 2012-12</li>
+
+            <!-- CMS:聚合展现平台/展现层/真实案例_左结束:personalportal/portal/safeguard_case_1.vm -->            </ul>
+        <i class="separator"></i>
+        <ul class="case-right">
+            <!-- CMS:聚合展现平台/展现层/真实案例_右开始:personalportal/portal/safeguard_case_2.vm -->
+            <li>用户：24********@q*.com  补偿金额：2021    2012-12</li>
+            <li>用户：47*******@q*.com   补偿金额：1360    2012-12</li>
+            <li>用户：72*******@q*.com   补偿金额：2020    2012-12</li>
+            <li>用户：18**********	   补偿金额：1971.29 2012-12</li>
+            <li>用户：24********@q*.com  补偿金额：1221    2012-12</li>
+
+            <!-- CMS:聚合展现平台/展现层/真实案例_右结束:personalportal/portal/safeguard_case_2.vm -->            </ul>
+    </div>
+
+    <ul class="sns fn-clear" id="J-sns">
+        <li><a href="#" class="ui-icon-sns ui-icon-renren">人人网</a></li>
+        <li><a href="#" class="ui-icon-sns ui-icon-qq">腾讯微博</a></li>
+        <li><a href="#" class="ui-icon-sns ui-icon-sina">新浪微博</a></li>
+    </ul>
+</div>
+<div class="page-foot fn-clear">
+    <div class="foot-link">
+        <h3>新手上路</h3>
+        <ul>
+            <li><a href="http://abc.alipay.com/ii/index.htm#!/cool/#?Classs=Taobao&id=0"
+                   target="_blank">了解如何淘宝购物</a>
+            </li>
+            <li><a href="http://abc.alipay.com/ii/index.htm#!/cool/#?Classs=Basic&id=2"
+                   target="_blank">挑选合适的支付方式</a>
+            </li>
+            <li><a href="http://abc.alipay.com/ii/index.htm#!/cool/#?Classs=Basic&id=4"
+                   target="_blank">确保账户安全</a>
+            </li>
+        </ul>
+    </div>
+    <div class="foot-link">
+        <h3>支付方式</h3>
+        <ul>
+            <li><a href="http://abc.alipay.com/video/index.htm#paymentABCjjkkj" target="_blank">快捷支付</a></li>
+            <li><a href="http://abc.alipay.com/cool/cool.html#?Classs=Basic&id=2&page=5"
+                   target="_blank">余额支付</a>
+            </li>
+            <li><a href="http://home.alipay.com/bank/paymentOnlineBank.htm" target="_blank">网银支付</a></li>
+        </ul>
+    </div>
+    <div class="foot-link">
+        <h3>安全产品</h3>
+        <ul>
+            <li><a href="https://securitycenter.alipay.com/sc/index.htm" target="_blank">挑选安全产品</a></li>
+            <li><a href="https://securitycenter.alipay.com/sc/study/index.htm" target="_blank">安全学堂</a></li>
+            <li><a href="https://securitycenter.alipay.com/sc/index.htm" target="_blank">账户安全体检</a></li>
+        </ul>
+    </div>
+    <div class="foot-link foot-link-last">
+        <h3>生活应用</h3>
+        <ul>
+            <li><a href="https://shenghuo.alipay.com/credit.htm" target="_blank">信用卡还款</a></li>
+            <li><a href="https://shenghuo.alipay.com/jiaofei.htm" target="_blank">水电煤缴费</a></li>
+            <li><a href="https://shenghuo.alipay.com/tocard.htm" target="_blank">转账到银行卡</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+<!-- CMS:聚合展现平台/展现层/会员保障分享配置开始:personalportal/portal/safeguard_share_config.vm --><div class="fn-hide" id="J-shareConfig" >
+    <div id="J-shareConfig-title">支付宝推出会员保障服务啦，余额支付、网购、缴费还款更安心！#支付宝会员保障#</div>
+    <div id="J-shareConfig-url">https://my.alipay.com/portal/account/safeguard.htm</div>
+    <div id="J-shareConfig-pic">https://i.alipayobjects.com/e/201209/1IFa5udp6a.jpeg</div>
+</div>
+<!-- CMS:聚合展现平台/展现层/会员保障分享配置结束:personalportal/portal/safeguard_share_config.vm -->
+
+<!-- CMS:支付宝全站/监控埋点/tracker js引用开始:alipay/tracker/tracker.vm -->
+
+<script type="text/javascript" charset="utf-8" src="https://a.alipayobjects.com/ar/??alipay.smartracker-1.3.js"></script>
+
+<!-- CMS:支付宝全站/cmsbuffer/main开始:alipay/cmsbuffer/main.vm --><!-- CMS:支付宝全站/cmsbuffer/main结束:alipay/cmsbuffer/main.vm --><!-- CMS:支付宝全站/监控埋点/tracker js引用结束:alipay/tracker/tracker.vm -->
+
+
+<!-- /component/footCommon.vm -->
+<style>
+    .ui-footer {margin-top: 30px; border-top: 1px solid #cccccc; height: 100px; color:#808080;}
+    .ui-footer .ui-separator{font-weight: normal;}
+    .ui-footer-ctn {border-top: 1px solid #ffffff;padding-top: 15px;text-align: center;}
+    .ui-footer-link a {padding: 0 3px 0 2px;}
+    .ui-footer-copyright,.ui-footer-phone {padding-top: 10px;}
+    .ui-footer-copyright a,.ui-footer-copyright a:hover {color:#808080;}
+    .server{color:#fff;}
+</style>
+<div class="ui-footer fn-clear" coor="footer">
+    <div class="ui-footer-ctn">
+        <!-- CMS:支付宝全站/全站底部/底部链接开始:alipay/foot/links.vm --><div class="ui-footer-link">
+        <a href="http://ab.alipay.com/i/index.htm" target="_blank" seed="foot-1">关于支付宝</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-3" href="http://ue.alipay.com/" title="体验计划" target="_blank">体验计划</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-4" href="http://blog.alipay.com/" title="官方博客" target="_blank">官方博客</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-5" href="http://job.alipay.com/index.php" title="诚征英才" target="_blank">诚征英才</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-6" href="http://ab.alipay.com/i/lianxi.htm" title="联系我们" target="_blank">联系我们</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-9" href="https://open.alipay.com/index.htm" title="开放平台" target="_blank">开放平台</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-7" href="http://global.alipay.com/" title="International Business" target="_blank">International Business</a>
+        <em class="ui-separator">|</em>
+        <a seed="foot-8" href="http://ab.alipay.com/i/jieshao.htm#en" title="About Alipay" target="_blank">About Alipay</a>
+    </div><!-- CMS:支付宝全站/全站底部/底部链接结束:alipay/foot/links.vm -->
+        <div class="ui-footer-copyright">
+            <!-- CMS:支付宝全站/全站底部/alipay_foot_copyright_vm开始:alipay/foot/copyright.vm --><style>
+            .copyright,.copyright a,.copyright a:hover{color:#808080;}
+        </style>
+            <div class="copyright">
+                支付宝版权所有 2004-2013
+                <a href="https://i.alipayobjects.com/e/201201/2PFHAJCn91.jpg" target="_blank">ICP证：浙B2-20100257</a>
+            </div>
+            <div class="server" id="ServerNum">
+                personalportal-60-1 &nbsp; 16066ff6-2c44-424a-a070-9d55578c5cf4
+            </div>
+
+
+            <!-- CMS:支付宝全站/全站底部/alipay_foot_copyright_vm结束:alipay/foot/copyright.vm -->        </div>
+    </div>
+</div>
+<!-- /component/footCommon.vm -->
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    var araleConfig = {
+        combo_host: 'https://a.alipayobjects.com',
+        combo_path: '/ar/??',
+        //头像上传的host
+        avatar_host: 'https://tfsimg.alipay.com'
+    }
+
+    var oldDomain=document.domain;
+    var num=oldDomain.indexOf('alipay');
+    var newDomain=oldDomain.substring(num,oldDomain.length);
+    document.domain=newDomain;
+</script>
+<script type="text/javascript" charset="utf-8" src="https://a.alipayobjects.com/ar/arale.core-1.1.js"></script>
+
+
+
+<!--//--><script type="text/javascript">
+    seajs.use(['$', 'alipay/atip/0.9.0/atip'], function ($, Atip) {
+        new Atip({
+            trigger:$('#J-pop-balance'),
+            distance:0,
+            content:'什么是<a href="http://help.alipay.com/lab/help_detail.htm?help_id=252980" target="_blank">余额支付</a>？',
+            arrowPosition:10,
+            width:120
+        });
+        new Atip({
+            trigger:$('#J-pop-kuai'),
+            distance:0,
+            content:'什么是<a target="_blank" href="http://help.alipay.com/lab/help_detail.htm?help_id=252983">快捷支付</a>？',
+            arrowPosition:10,
+            width:120
+        });
+
+        new Atip({
+            trigger:$('#J-pop-danbao'),
+            distance:0,
+            content:'什么是<a target="_blank" href="http://fun.alipay.com/dbzf/buyer.htm">担保支付</a>？',
+            arrowPosition:10,
+            width:120
+        });
+    });
+
+    seajs.use(['$'], function ($) {
+        function switchable(target_id) {
+            var switchList = $('.switch-list');
+            switchList.each(function (idx, item) {
+                if (target_id === $(item).attr('id')) {
+                    switchableShow(item);
+
+                }
+                else {
+                    switchableHide(item);
+                }
+            });
+        }
+
+        function switchableShow(switchItem) {
+            $(switchItem).removeClass('fn-hide');
+
+            switch ($(switchItem).attr('id')) {
+                case 'J-wallet':
+                    $('#J-guard-list-wallet > a').addClass('current');
+                    break;
+                case 'J-trade':
+                    $('#J-guard-list-trade  > a').addClass('current');
+                    break;
+                case 'J-indemnity':
+                    $('#J-guard-list-indemnity > a').addClass('current');
+                    break;
+            }
+
+        }
+
+        function switchableHide(switchItem) {
+            $(switchItem).addClass('fn-hide');
+
+            switch ($(switchItem).attr('id')) {
+                case 'J-wallet':
+                    $('#J-guard-list-wallet > a').removeClass('current');
+                    break;
+                case 'J-trade':
+                    $('#J-guard-list-trade > a').removeClass('current');
+                    break;
+                case 'J-indemnity':
+                    $('#J-guard-list-indemnity > a').removeClass('current');
+                    break;
+            }
+
+        }
+
+        E.on($$('.guard-list a'), 'click', function (e) {
+            e.stopEvent();
+            var target = e.target;
+            switchable(target.getAttribute('data-for'));
+        });
+    });
+
+
+    //</script>
+<!--//--><script type="text/javascript">
+    shareConfig = {
+        container:'J-sns',
+        service:['renren', 'qq', 'sina'],
+        param:{
+            title:document.getElementById("J-shareConfig-title").innerHTML,
+            url:document.getElementById("J-shareConfig-url").innerHTML,
+            pic:document.getElementById("J-shareConfig-pic").innerHTML
+        }
+    };
+    //</script>
+<!--//--><script type="text/javascript" charset="utf-8" src="https://a.alipayobjects.com/ar/alipay.share-1.0-src.js"></script>
+
+
+
+
+
+<!-- CMS:支付宝全站/全站底部/alipay_foot_onlineServiceNew_vm开始:alipay/foot/onlineServiceNew.vm -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onlineService" seed="online-service" class="lim:live:icon" lim:image="https://i.alipayobjects.com/e/201112/1gsKVOdh4r.gif">&nbsp;</div>
+<style type="text/css" media="screen">
+    #onlineService {
+        display: inline;
+        position: absolute;
+        z-index: 9999;
+        top: 88px;
+        right: 0;
+    }
+</style>
+<!-- CMS:支付宝全站/全站底部/在线客服新埋点区块开始:alipay/foot/cliveService.vm --><script type="text/javascript">
+    (function(){
+        var loadScript=function(url, callback){
+            var head = document.head || document.getElementsByTagName( "head" )[0] || document.documentElement,
+                    script = document.createElement('script');
+            script.charset="utf-8";
+            script.type = "text/javascript";
+
+            script.onload=script.onreadystatechange = function(){
+                if (!script.readyState || /loaded|complete/.test( script.readyState )) {
+                    callback&&callback();
+                    script.onload=script.onreadystatechange = null;
+                }
+            }
+            script.src = url;
+            head.insertBefore(script,head.firstChild);
+        }
+        var bind=function(el, name, func){
+            if (window.attachEvent) {
+                el.attachEvent("on" + name, func);
+            }
+            else {
+                el.addEventListener(name, func, false);
+            }
+        };
+        try{
+            var loadScriptList=['https://a.alipayobjects.com/u/js/201302/28tLDjusUP.js','https://a.alipayobjects.com/u/js/201301/265oNwd112.js','https://clive.alipay.com/csrouter.htm'];
+            var isUrl=(function(){
+                var urlRule=/^https:\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+                if(window.location.href.indexOf("alipay.com")>-1){
+                    for(var i=0,len=loadScriptList.length;i<len;i++){
+                        if(!loadScriptList[i].replace(/^\s*|\s*$/,"")||!urlRule.test(loadScriptList[i])){
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            })();
+            var devices=(function(){
+                var userAgent = navigator.userAgent ? navigator.userAgent.toLowerCase() : "";
+                var device={
+                    pc: "windows",
+                    ipad: "ipad",
+                    ipod: "ipod",
+                    iphone: "iphone",
+                    mac: "macintosh",
+                    android: "android",
+                    nokia: /nokia([^\/ ]+)/
+                };
+
+                for(var key in device){
+                    if(device.hasOwnProperty(key)){
+                        device[key]=(userAgent.indexOf(device[key]) !== -1 ? true : false);
+                    }
+                }
+                return device;
+            })();
+
+
+            if(isUrl&&!(devices.ipad||devices.ipod||devices.iphone||devices.android||devices.nokia)) {
+                window.CLIVEONLINESERVERURL=loadScriptList[2];
+                if (!(window.Cashier && Cashier.Cache)) {
+                    bind(window,"load",function(){
+                        loadScript(loadScriptList[0],function(){
+                            loadScript(loadScriptList[1]);
+                        });
+
+                    })
+                }else{
+                    loadScript(loadScriptList[0],function(){
+                        loadScript(loadScriptList[1]);
+                    });
+
+
+                }
+            }
+        }catch(ex){
+
+        }
+    })()
+</script><!-- CMS:支付宝全站/全站底部/在线客服新埋点区块结束:alipay/foot/cliveService.vm --><!-- CMS:支付宝全站/全站底部/alipay_foot_onlineServiceNew_vm结束:alipay/foot/onlineServiceNew.vm -->
+<!-- CMS:支付宝全站/全站底部/在线客服流量控制开始:alipay/foot/onlineServiceCtr.vm -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CMS:支付宝全站/全站底部/在线客服流量控制结束:alipay/foot/onlineServiceCtr.vm -->
+</body>
+</html>

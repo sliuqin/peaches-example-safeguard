@@ -1,0 +1,24 @@
+a{
+    color: #0088CC;
+}
+.ui-container{
+    color: #555;
+    margin: 0 auto;
+    width: 990px;
+}
+.page-content a,.page-content a:visited{
+    color: #0088CC;
+}
+.ft-orange{
+    color: #ff6640;
+}
+.fn-mt-10{
+    margin-top:10px;
+}
+.ui-poptip-content{
+    width:auto;
+}
+.ui-poptip-content a,.ui-poptip-content a:visited{
+    color: inherit;
+    text-decoration: underline;
+}

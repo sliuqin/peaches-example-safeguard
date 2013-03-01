@@ -1,0 +1,464 @@
+/** ** **** **** **** **** **** **** **** 头部 **** **** **** **** **** **** **** **** ****/
+.header {
+    position: relative;
+    height: 140px;
+    margin-bottom: 10px;
+}
+
+.slogan-title {
+    margin: 40px 0 10px;
+    text-indent: -99999px;
+    background: url(https://i.alipayobjects.com/e/201212/1mF0YvgoAP.png);
+    height: auto;
+    width: auto;
+}
+
+.slogan-notice {
+    position: absolute;
+    bottom: 0;
+    color: #acacac;
+}
+
+/** 保障列表  **/
+.guard-list {
+    margin-right: 75px;
+}
+
+.guard-list li {
+    display: inline;
+    float: left;
+    margin-right: 40px;
+    vertical-align: middle;
+}
+
+.switch-arrow {
+    font-size: 20px;
+    left: 460px;
+    position: absolute;
+    top: -15px;
+}
+
+.ie6 .switch-arrow {
+    top: -13px;
+}
+
+.ie7 .switch-arrow, .ie8 .switch-arrow {
+    top: -12px;
+}
+
+.switch-arrow em {
+    position: absolute;
+    top: -2px;
+    color: #D8D8D8;
+}
+
+.switch-arrow span {
+    position: absolute;
+    color: #E7E7E7;
+
+}
+
+.icon-wallet a, .icon-wallet a:hover, .icon-wallet a:active, .icon-wallet a:focus,
+.icon-trade a, .icon-trade a:hover, .icon-trade a:active, .icon-trade a:focus,
+.icon-indemnity a, .icon-indemnity a:hover, .icon-indemnity a:active, .icon-indemnity a:focus,
+.icon-wallet-disable a, .icon-wallet-disable a:hover, .icon-wallet-disable a:active, .icon-wallet-disable a:focus {
+    display: block;
+    text-indent: -9999px;
+    outline: 0;
+}
+
+/* 账户资金 */
+.icon-wallet a {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfp5kgRVF.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet a.current {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfp5q5nuH.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet a:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfp5nfXJF.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet a.current:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfp5pgKYv.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-wallet a {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfECeLAlx.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-wallet a.current {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfBIomlr3.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-wallet a:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfEagI2XN.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-wallet a.current:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfFPyV0GL.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet-disable a {
+    background: url(https://i.alipayobjects.com/e/201301/1yg5sE0l7d.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet-disable a.current {
+    background: url(https://i.alipayobjects.com/e/201301/1yg5sE2Jtd.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet-disable a:hover {
+    background: url(https://i.alipayobjects.com/e/201301/1yg5sCqHMj.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-wallet-disable a.current:hover {
+    background: url(https://i.alipayobjects.com/e/201301/1yg5rjsO9V.png);
+    width: auto;
+    height: auto;
+}
+
+/* 购物交易 */
+.icon-trade a {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfxydOWv7.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-trade a.current {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfxycofC9.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-trade a:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfxyeCTh7.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-trade a.current:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfxyYWDwb.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-trade a {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfeJuWW6f.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-trade a.current {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfeJt4Dlt.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-trade a:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfeJtG7Hh.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-trade a.current:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfeJsyANh.png);
+    width: auto;
+    height: auto;
+}
+
+/* 逾期补偿 */
+.icon-indemnity a {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfz0RQG2n.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-indemnity a.current {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfz0QK8Jp.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-indemnity a:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfz0PIwWb.png);
+    width: auto;
+    height: auto;
+}
+
+.icon-indemnity a.current:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfz0P6ViH.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-indemnity a {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfiGDaqDN.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-indemnity a.current {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfiGC5ZR7.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-indemnity a:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfiGB7jl7.png);
+    width: auto;
+    height: auto;
+}
+
+.isNotLogon .icon-indemnity a.current:hover {
+    background-image: url(https://i.alipayobjects.com/e/201301/1yfiGDUEU9.png);
+    width: auto;
+    height: auto;
+}
+
+/** 保障列表  结束。**/
+
+/** ** **** **** **** **** **** **** **** 中间区域 **** **** **** **** **** **** **** **** ****/
+.page-content {
+    border-radius: 3px;
+    border: 2px solid #d8d8d8;
+    position: relative;
+}
+
+.page-main {
+    background-color: #e7e7e7;
+    padding: 20px 0 20px 35px;
+}
+
+.ui-tiptext-lsuccess, .ui-tiptext-lwarning {
+    text-indent: 40px;
+    position: relative;
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.ui-tiptext-lsuccess .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oBaAZvCNo.png);
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.ui-tiptext-lwarning .ui-tiptext-icon {
+    background-image: url(https://i.alipayobjects.com/e/201212/1oBaosGKOK.png);
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.page-main .login, .page-main .condition-list {
+    margin: 10px 0 0 40px;
+}
+
+.page-main .condition-list li {
+    float: left;
+    width: 280px;
+}
+
+.page-main .condition-list li.secu {
+    width: 190px;
+}
+
+.page-main .condition-list li.or {
+    width: 25px;
+    margin-top: 15px;
+}
+
+.page-main-detail {
+    background-color: #f8f8f8;
+    padding: 20px 0 0 35px;
+}
+
+.condition-list .ui-tiptext-success, .condition-list .ui-tiptext-warning {
+    margin-top: 10px;
+}
+
+.condition-list .ui-tiptext-success .ui-tiptext-icon,
+.condition-list .ui-tiptext-warning .ui-tiptext-icon {
+    margin-right: 0;
+}
+
+.guard-list-detail li {
+    padding: 15px 0 10px 35px;
+    position: relative;
+    width: 780px;
+}
+
+.guard-list-detail li.notice {
+    background-color: #fffcee;
+}
+
+.guard-list-detail li .guard-item {
+    position: relative;
+    left: -25px;
+    margin-bottom: 5px;
+    color: #F37021;
+}
+
+.guard-list-detail  strong {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.page-main-detail .detail-notice {
+    margin: 10px 0 0 35px;
+}
+
+.step {
+    background-color: #F8F8F8;
+    padding: 20px 0 25px 35px;
+}
+
+.step .ui-tiptext-notice {
+    margin-top: 10px;
+}
+
+.step h3 {
+    font-size: 18px;
+}
+
+.step-list .separator {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin-right: 50px;
+    margin-top: 14px;
+    background-image: url(https://i.alipayobjects.com/e/201212/1oCI5hgCIu.png);
+}
+
+.step-list li {
+    float: left;
+}
+
+.step-list .icon {
+    float: left;
+    width: 80px;
+    height: 50px;
+}
+
+.step-list p {
+    float: left;
+    margin-top: 5px;
+}
+
+.step-list-1 {
+    width: 225px;
+}
+
+.step-list-1 .icon {
+    background: url(https://i.alipayobjects.com/e/201212/1oCIlEM8Um.png);
+}
+
+.step-list-2 {
+    width: 310px;
+}
+
+.step-list-2 .icon {
+    background: url(https://i.alipayobjects.com/e/201212/1oCKpjmNzQ.png);
+}
+
+.step-list-3 {
+    width: 270px;
+}
+
+.step-list-3 .icon {
+    background: url(https://i.alipayobjects.com/e/201212/1oCLYqJ1nw.png);
+}
+
+.case {
+    background-color: #a5a8a8;
+    padding: 10px 0 30px 35px;
+}
+
+.case h3 {
+    font-size: 18px;
+    color: #fff;
+}
+
+.case-left, .case-right {
+    float: left;
+    width: 390px;
+}
+
+.case .separator {
+    float: left;
+    width: 0;
+    height: 85px;
+    border-left: 1px solid #CECECE;
+    border-right: 1px solid #8F9393;
+    margin-right: 70px;
+}
+
+.case .sns {
+    margin-right: 10px;
+}
+
+.case .sns li {
+    float: right;
+    margin-right: 5px;
+}
+
+.page-foot {
+    padding: 35px 0;
+    background-color: #dbdbdb;
+}
+
+.foot-link {
+    float: left;
+    width: 24%;
+}
+
+.foot-link a, .foot-link a:active, .foot-link a:visited {
+    color: #636363;
+    line-height: 20px;
+}
+
+.foot-link h3, .foot-link ul {
+    margin-left: 40px;
+}
+
+.foot-link h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.foot-link ul {
+    border-right: 1px solid #FFFFFF;
+    margin-right: 45px;
+}
+
+.foot-link-last ul {
+    border-right: none;
+}

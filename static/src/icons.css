@@ -1,0 +1,45 @@
+.icon-question {
+    display: inline-block;
+    background-image: url(https://i.alipayobjects.com/e/201212/1lvOHUef92.png);
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.icon-realname, .icon-secuProduct, .icon-secuProduct-phone {
+    width: 46px;
+    height: 46px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.icon-realname {
+    background-image: url(https://i.alipayobjects.com/e/201212/1nyVh1W7e8.png);
+}
+
+.icon-secuProduct {
+    background-image: url(https://i.alipayobjects.com/e/201212/1nyVh2XM2e.png);
+}
+
+.icon-secuProduct-phone {
+    background-image: url(https://i.alipayobjects.com/e/201212/1p7IJCTqqz.png);
+}
+
+.ui-icon-sns {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.ui-icon-sina {
+    background-image: url(https://i.alipayobjects.com/e/201212/1ofTnrSo4K.png);
+}
+
+.ui-icon-qq {
+    background-image: url(https://i.alipayobjects.com/e/201212/1ofTnqaNym.png);
+}
+
+.ui-icon-renren {
+    background-image: url(https://i.alipayobjects.com/e/201212/1ofTzLnuXc.png);
+}

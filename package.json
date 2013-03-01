@@ -1,0 +1,10 @@
+{
+    "output": {
+        "./static/dist/safeguard.css": [
+            "./static/src/alice.css",
+            "./static/src/layout.css",
+            "./static/src/icons.css",
+            "./static/src/index.css"
+        ]
+    }
+}
