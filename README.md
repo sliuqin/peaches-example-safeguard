@@ -7,3 +7,5 @@
 [在线浏览](http://sliuqin.github.com/peaches-example-safeguard/)
 
 **支付宝对改页面保留所有权利！**
+
+这也是peaches的入门示例[点击查看](peaches.io/blog/2012/12/12/starter-kit)
