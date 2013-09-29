@@ -8,4 +8,4 @@
 
 **支付宝对改页面保留所有权利！**
 
-这也是peaches的入门示例[点击查看](http://peaches.io/blog/2012/12/12/starter-kit)
+这也是peaches的入门示例[点击查看](https://github.com/sliuqin/peaches/wiki/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97)
